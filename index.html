@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ToDo-List</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>ToDo-List</h1>
+  <form>
+    <input class="task_value" type="text" />
+    <button class="task_submit" type="button">追加</button>
+    <!-- 追加: 締め切り日時を入力するためのラベル -->
+    <label for="deadline" style="margin-top: 0.5rem;">締切:</label>
+    <!-- 追加: 締め切り日時の入力フォーム -->
+    <input class="deadline_value" type="datetime-local" />  
+    <!-- 追加: 優先順位を入力するためのラベル -->
+    <label for="priority" style="margin-top: 0.5rem;">優先順位:</label>
+    <!-- 追加: 優先順位の入力フォーム -->
+    <input class="priority_value" type="number" min="1" max="5" placeholder="Priority" />
+
+
+  </form>
+  <div id="table">
+    <h2>最近のタスク</h2>
+    <ul class="task_list"></ul>
+  </div>
+<script src="main.js"></script>
+</body>
+</html>
