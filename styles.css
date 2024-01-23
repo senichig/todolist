@@ -10,90 +10,102 @@ body, html {
 }
 
 /* タスク入力フォームと追加ボタンのスタイル */
-.task_value {
+.task_value, .deadline_value, .priority_value, .task_submit {
+  width: 15%; /* 幅を50%に設定し、マージンを調整 */
   height: 1.5rem;
   letter-spacing: 0cap;
-  margin-bottom: 0.5rem; /* タスク入力欄とボタンの間にスペースを追加 */
+  margin-bottom: 0.5rem;
+  box-sizing: border-box; /* 幅にpaddingやborderが含まれるように設定 */
 }
 
 .task_submit {
-  height: 2rem;
-  margin-bottom: 1rem; /* ボタンの下にスペースを追加 */
+  margin-left: 1rem; /* 追加ボタンに左マージンを追加 */
+  width: 50px;
+}
+
+/* カテゴリー選択用のラジオボタン */
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 /* タスクリスト表示エリアのスタイル */
 #table {
-  background-color: #F2F2F2; /* Excel風の背景色に変更 */
-  width: 70%; /* 幅を調整 */
-  margin: 2rem auto; /* 上下の余白を追加 */
+  background-color: #F2F2F2;
+  width: 70%;
+  margin: 2rem auto;
   padding: 1rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 影の追加 */
-  border-radius: 0.5rem; /* 角を丸める */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
 }
 
 h1 {
-  text-align: center; /* タイトルを中央揃えにする */
-  color: #1F497D; /* Excel風の青色に変更 */
+  text-align: center;
+  color: #1F497D;
 }
 
 h2 {
-  font-size: 1.5rem; /* タイトルのフォントサイズを大きくする */
-  text-align: center; /* タイトルを左揃えにする */
+  font-size: 1.5rem;
+  text-align: center;
   margin-bottom: 1rem;
-  color: #2E75B6; /* タイトルの青色を変更 */
+  color: #2E75B6;
 }
 
 /* タスクリストアイテムのスタイル */
 li {
-  margin: 1rem 0; /* アイテム間のスペースを調整 */
-  padding: 1rem; /* アイテム内の余白を増やす */
-  border: 1px solid #D9D9D9; /* ボーダーの色を変更 */
-  border-radius: 0.5rem; /* 角を丸める */
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #D9D9D9;
+  border-radius: 0.5rem;
   display: flex;
   justify-content: space-between;
-  background-color: #FFFFFF; /* アイテムの背景色を白に変更 */
+  background-color: #FFFFFF;
 }
 
 .task_list {
-  list-style-type: none; /* リストのマーカーを非表示にする */
-  padding: 0; /* リストの余白を削除 */
+  list-style-type: none;
+  padding: 0;
 }
 
 /* タスク削除ボタンのスタイル */
 li button {
-  background-color: #E81123; /* Excel風の赤に変更 */
-  color: #FFFFFF; /* ボタンの文字色を白に変更 */
+  background-color: #E81123;
+  color: #FFFFFF;
   border: none;
   padding: 0.5rem;
   cursor: pointer;
   border-radius: 0.2rem;
+  flex-shrink: 0;
 }
 
 /* ボタンホバーエフェクト */
 li button:hover {
-  background-color: #FF5050; /* ホバー時の背景色を濃い赤に変更 */
+  background-color: #FF5050;
 }
-
 
 .task_header {
   display: flex;
   justify-content: space-between;
-  font-weight: bold; /* ヘッダーテキストを太字に設定 */
-  padding: 0.5rem; /* ヘッダー内の余白を調整 */
-}
-
-.task_list {
-  list-style-type: none; /* リストのマーカーを非表示にする */
-  padding: 0; /* リストの余白を削除 */
-}
-
-form{
+  font-weight: bold;
+  padding: 0.5rem;
   text-align: center;
 }
 
-strong, span{
+.task_header span:last-child  {
+  flex: 0 0 50px; /* 完了ボタンの幅を調整 */
+}
+
+.task_list {
+  list-style-type: none;
+  text-align: center;
+}
+
+form {
+  text-align: center;
+}
+
+strong, span {
   border: solid 1px;
   border-collapse: collapse;
   width: 100%;
 }
-
