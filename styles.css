@@ -93,7 +93,9 @@ li button:hover {
 }
 
 .task_header span:last-child  {
-  flex: 0 0 50px; /* 完了ボタンの幅を調整 */
+  flex: 0 0 50px; /* completeボタンの幅を調整 */
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .task_list {
