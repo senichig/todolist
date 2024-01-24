@@ -39,12 +39,12 @@ const addTasks = (task, priority, deadline, category) => {
     <span>${category}</span>
   `;
 
-  // 完了ボタンを追加
+  // completeボタンを追加
   const deleteButton = document.createElement('button');
-  deleteButton.innerHTML = '完了';
+  deleteButton.innerHTML = 'complete';
   listItem.appendChild(deleteButton);
 
-  // 完了ボタンのクリックイベントを設定
+  // completeボタンのクリックイベントを設定
   deleteButton.addEventListener('click', evt => {
     evt.preventDefault();
     deleteTasks(deleteButton);
@@ -99,9 +99,9 @@ const showTasksByCategory = (category) => {
 
 
 // カテゴリークリック時のイベントリスナーを設定
-document.getElementById('work-category').addEventListener('click', () => showTasksByCategory('仕事'));
-document.getElementById('private-category').addEventListener('click', () => showTasksByCategory('個人'));
-document.getElementById('shopping-category').addEventListener('click', () => showTasksByCategory('買い物'));
+document.getElementById('work-category').addEventListener('click', () => showTasksByCategory('work'));
+document.getElementById('private-category').addEventListener('click', () => showTasksByCategory('private'));
+document.getElementById('shopping-category').addEventListener('click', () => showTasksByCategory('shoppping'));
 
 // Enterキーが押されたときのイベントハンドラを設定
 const handleEnterKey = (evt) => {
