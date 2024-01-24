@@ -9,7 +9,7 @@ const taskList = document.getElementsByClassName('task_list')[0];
 const tasks = [];
 const categories = {
   work: [],
-  personal: [], // 修正：typoを修正
+  private: [], 
   shopping: [],
   // 他のカテゴリーを追加する場合はここに追加
 };
@@ -100,7 +100,7 @@ const showTasksByCategory = (category) => {
 
 // カテゴリークリック時のイベントリスナーを設定
 document.getElementById('work-category').addEventListener('click', () => showTasksByCategory('仕事'));
-document.getElementById('personal-category').addEventListener('click', () => showTasksByCategory('個人'));
+document.getElementById('private-category').addEventListener('click', () => showTasksByCategory('個人'));
 document.getElementById('shopping-category').addEventListener('click', () => showTasksByCategory('買い物'));
 
 // Enterキーが押されたときのイベントハンドラを設定
