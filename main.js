@@ -1,143 +1,116 @@
-const taskValue = document.getElementsByClassName('task_value')[0];
-const priorityValue = document.getElementsByClassName('priority_value')[0];
-const deadlineValue = document.getElementsByClassName('deadline_value')[0];
-const taskSubmit = document.getElementsByClassName('task_submit')[0];
-const taskList = document.getElementsByClassName('task_list')[0];
+/* モバイルファーストのスタイリング */
+html {
+  font-size: 16px;
+}
 
-const tasks = [];
-const categories = {
-  work: [],
-  personal: [], // corrected the typo
-  shopping: [],
-  // 他のカテゴリーを追加する場合はここに追加
-};
+body, html {
+  width: 100%;
+  margin: 1rem auto;
+  font-family: serif;
+}
 
-const addTasks = (task, priority, deadline, category) => {
-  const listItem = document.createElement('li');
-  listItem.setAttribute('data-priority', priority);
-  listItem.setAttribute('data-deadline', deadline);
-  listItem.setAttribute('data-category', category);
+/* タスク入力フォームと追加ボタンのスタイル */
+.task_value, .deadline_value, .priority_value, .task_submit {
+  width: 15%; /* 幅を50%に設定し、マージンを調整 */
+  height: 1.5rem;
+  letter-spacing: 0cap;
+  margin-bottom: 0.5rem;
+  box-sizing: border-box; /* 幅にpaddingやborderが含まれるように設定 */
+}
 
-  const oneDayInMillis = 24 * 60 * 60 * 1000;
-  const today = new Date();
-  const taskDeadline = new Date(deadline);
+.task_submit {
+  margin-left: 1rem; /* 追加ボタンに左マージンを追加 */
+  width: 50px;
+}
 
-  if (taskDeadline - today < oneDayInMillis) {
-    listItem.classList.add('urgent-task');
-  }
+/* カテゴリー選択用のラジオボタン */
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
 
-  listItem.innerHTML = `
-    <strong>${task}</strong>
-    <span>${formatDeadline(deadline)}</span>
-    <span>${priority}</span>
-    <span>${category}</span>
-  `;
+/* タスクリスト表示エリアのスタイル */
+#table {
+  background-color: #F2F2F2;
+  width: 70%;
+  margin: 2rem auto;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
 
-  const deleteButton = document.createElement('button');
-  deleteButton.innerHTML = '完了';
-  listItem.appendChild(deleteButton);
+h1 {
+  text-align: center;
+  color: #1F497D;
+}
 
-  deleteButton.addEventListener('click', evt => {
-    evt.preventDefault();
-    deleteTasks(deleteButton);
-  });
+h2 {
+  font-size: 1.5rem;
+  font: optional;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #2E75B6;
+}
 
-  tasks.push({
-    element: listItem,
-    priority: parseInt(priority),
-    deadline: new Date(deadline),
-    category: category,
-  });
+/* タスクリストアイテムのスタイル */
+li {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #D9D9D9;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+}
 
-  categories[category].push({
-    element: listItem,
-    priority: parseInt(priority),
-    deadline: new Date(deadline),
-    category: category,
-  });
+.task_list {
+  list-style-type: none;
+  padding: 0;
+}
 
-  sortTasks();
-  taskList.appendChild(listItem);
-};
+/* タスク削除ボタンのスタイル */
+li button {
+  background-color: #E81123;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.2rem;
+  flex-shrink: 0;
+}
 
-const showTasksByCategory = (category) => {
-  taskList.innerHTML = '';
-  categories[category].forEach(task => {
-    taskList.appendChild(task.element);
-  });
-};
+/* ボタンホバーエフェクト */
+li button:hover {
+  background-color: #FF5050;
+}
 
-document.getElementById('work-category').addEventListener('click', () => showTasksByCategory('work'));
-document.getElementById('personal-category').addEventListener('click', () => showTasksByCategory('personal'));
-document.getElementById('shopping-category').addEventListener('click', () => showTasksByCategory('shopping'));
+.task_header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  padding: 0.5rem;
+  text-align: center;
+}
 
-const handleEnterKey = (evt) => {
-  if (evt.key === 'Enter') {
-    evt.preventDefault();
-    const task = taskValue.value;
-    const priority = priorityValue.value;
-    const deadline = deadlineValue.value;
-    const category = document.querySelector('input[name="category"]:checked').value;
-    addTasks(task, priority, deadline, category);
-    clearInputFields(); // New function to clear input fields
-  }
-};
+.task_header span:last-child  {
+  flex: 0 0 50px; /* 完了ボタンの幅を調整 */
+}
 
-taskValue.addEventListener('keyup', handleEnterKey);
-priorityValue.addEventListener('keyup', handleEnterKey);
-deadlineValue.addEventListener('keyup', handleEnterKey);
+.task_list {
+  list-style-type: none;
+  text-align: center;
+}
 
-taskSubmit.addEventListener('click', evt => {
-  evt.preventDefault();
-  const task = taskValue.value;
-  const priority = priorityValue.value;
-  const deadline = deadlineValue.value;
-  const category = document.querySelector('input[name="category"]:checked').value;
-  addTasks(task, priority, deadline, category);
-  clearInputFields();
-});
+form {
+  text-align: center;
+}
 
-const formatDeadline = (deadline) => {
-  const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' };
-  const formattedDeadline = new Date(deadline).toLocaleDateString('en-US', options);
-  return formattedDeadline;
-};
+strong, span {
+  border: solid 1px;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: rgb(236, 233, 231);
+  padding: 10px 0;
+  text-align: center;
+}
 
-const deleteTasks = (deleteButton) => {
-  const chosenTask = deleteButton.closest('li');
-  taskList.removeChild(chosenTask);
-
-  const indexInTasks = tasks.findIndex(task => task.element === chosenTask);
-  if (indexInTasks !== -1) {
-    tasks.splice(indexInTasks, 1);
-  }
-
-  for (const category in categories) {
-    const indexInCategory = categories[category].findIndex(task => task.element === chosenTask);
-    if (indexInCategory !== -1) {
-      categories[category].splice(indexInCategory, 1);
-      break;
-    }
-  }
-};
-
-const sortTasks = () => {
-  tasks.sort((a, b) => {
-    if (a.priority !== b.priority) {
-      return a.priority - b.priority;
-    } else {
-      return a.deadline - b.deadline;
-    }
-  });
-
-  taskList.innerHTML = '';
-  tasks.forEach(task => {
-    taskList.appendChild(task.element);
-  });
-};
-
-const clearInputFields = () => {
-  taskValue.value = '';
-  priorityValue.value = '';
-  deadlineValue.value = '';
-};
