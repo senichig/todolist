@@ -10,39 +10,39 @@
   <h1>ToDo-List</h1>
   <form>
     <input class="task_value" type="text" />
-    <button class="task_submit" type="button">追加</button>
+    <button class="task_submit" type="button">add</button>
     <!-- 追加: 締め切り日時を入力するためのラベル -->
-    <label for="deadline" style="margin-top: 0.5rem;">締切</label>
+    <label for="deadline" style="margin-top: 0.5rem;">deadline</label>
     <!-- 追加: 締め切り日時の入力フォーム -->
     <input class="deadline_value" type="datetime-local" />  
     <!-- 追加: 優先順位を入力するためのラベル -->
-    <label for="priority" style="margin-top: 0.5rem;">優先順位</label>
+    <label for="priority" style="margin-top: 0.5rem;">priority</label>
     <!-- 追加: 優先順位の入力フォーム -->
     <input class="priority_value" type="number" min="1" max="10" placeholder="Priority" />
 
     <!-- カテゴリー選択用のラジオボタン -->
     <label>
-      <input type="radio" name="category" value="work" id="work-category" checked> 仕事
+      <input type="radio" name="category" value="work" id="work-category" checked> work
     </label>
     <label>
-      <input type="radio" name="category" value="private" id="private-category"> プライベート
+      <input type="radio" name="category" value="private" id="private-category"> private
     </label>
     <label>
-      <input type="radio" name="category" value="shopping" id="shopping-category"> 買い物
+      <input type="radio" name="category" value="shopping" id="shopping-category">shopping
     </label>
     <!-- 他のカテゴリーがあればここに追加 -->
 
 
   </form>
   <div id="table">
-    <h2>最近のタスク</h2>
+    <h2>Current tasks</h2>
       <!-- タスクヘッダーの追加 -->
       <li class="task_header">
-        <strong>タスク</strong>
-        <span>締切</span>
-        <span>優先順位</span>
-        <span>カテゴリー</span>
-        <span>完了</span>
+        <strong>task</strong>
+        <span>deadline</span>
+        <span>priority</span>
+        <span>category</span>
+        <span>complete</span>
       </li>
       <ul class="task_list"></ul>
   </div>
