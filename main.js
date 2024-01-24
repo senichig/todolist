@@ -82,10 +82,21 @@ const insertSorted = (newTask, array) => {
 // カテゴリーごとにタスクを表示
 const showTasksByCategory = (category) => {
   taskList.innerHTML = '';
-  categories[category].forEach(task => {
-    taskList.appendChild(task.element);
+  tasks.forEach(task => {
+    if (!category || task.category === category) {
+      taskList.appendChild(task.element.cloneNode(true));
+    }
+  });
+
+  Object.values(categories).forEach(categoryTasks => {
+    categoryTasks.forEach(task => {
+      taskList.appendChild(task.element.cloneNode(true));
+    });
   });
 };
+
+
+
 
 // カテゴリークリック時のイベントリスナーを設定
 document.getElementById('work-category').addEventListener('click', () => showTasksByCategory('仕事'));
