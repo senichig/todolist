@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Senichi Ohyama - Portfolio</title>
+    <meta name="description" content="テキストテキストテキストテキストテキストテキストテキストテキスト">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <header id="header">
+      <h1 class="site-title"><a href="index.html"><img src="img/logo.svg" alt="Senichi Ohyama"></a></h1>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#works">Works</a></li>
+          <li><a href="#career">Career</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div id="mainvisual">
+        <picture>
+          <source media="(max-width: 600px)" srcset="img/mainvisual-sp.jpg">
+          <img src="img/mainvisual-pc.jpg" alt="テキストテキストテキスト">
+        </picture>
+      </div>
+
+      <section id="about" class="wrapper">
+        <h2 class="sec-title">About</h2>
+        <ul>
+          <li>Senichi Ohyama</li>
+          <li>school: 山形大学 工学部 情報・エレクトロニクス学科 ３年</li>
+          <li>tel: 080-6256-8311</li>
+          <li>from: 千葉県</li>
+          <li>mail: senichimmm@gmail.com</li>
+        </ul>
+        <ul>
+          <li>使用言語: html, css, JavaScript</li>
+          <li>制作物: ToDo-list</li> 
+          <li>
+            <p>機能: todoの追加,期限,優先順位,カテゴリーの設定。締切1日前に赤く表示。</p>
+            <p>　　　優先順位、期限によってタスクの順番の変更。</p>
+          </li>
+        </ul>
+        
+        
+      </section>
+
+      <section id="works" class="wrapper">
+        <h2 class="sec-title">Works</h2>
+        <ul>
+          <li><a href="https://senichig.github.io/todolist/"><img src="img/works1.jpg" alt="ToDo-list"></a></li>
+        </ul>
+        <h3>ソースコード</h3>
+
+          <details>
+            <summary><strong>index.html</strong></summary>
+            <p><script src="https://gist.github.com/senichig/1f2852a75433756ff44e160b7d8dfaae.js"></script></p>
+          </details><br>
+
+          <details>
+            <summary><strong>styles.css</strong></summary>
+            <p><script src="https://gist.github.com/senichig/f3556187ee29aa22b1197b463afef940.js"></script></p>
+          </details><br>
+
+          <details>
+            <summary><strong>main.js</strong></summary>
+            <p><script src="https://gist.github.com/senichig/bfac2250422c3707f34400885046622f.js"></script></p>
+          </details><br>
+
+      </section>
+
+      <section id="career" class="wrapper">
+        <h2 class="sec-title">Career</h2>
+        <dl>
+          <dt>2018.03</dt>
+          <dd>旭市立海上中学校 卒業</dd>
+          <dt>2018.04</dt>
+          <dd>千葉県立匝瑳高等学校 普通科 入学</dd>
+          <dt>2021.03</dt>
+          <dd>千葉県立匝瑳高等学校 普通科 卒業</dd>
+          <dt>2021.04</dt>
+          <dd>山形大学 工学部 情報・エレクトロニクス学科 入学</dd>
+          <dt>2025.03</dt>
+          <dd>山形大学 工学部 情報・エレクトロニクス学科 卒業予定</dd>
+        </dl>
+      </section>
+
+      <section id="contact" class="wrapper">
+        <h2 class="sec-title">Contact</h2>
+        <form action="#" method="post">
+          <dl>
+            <dt><label for="name">NAME</label></dt>
+            <dd><input type="text" id="name" name="your-name"></dd>
+            <dt><label for="email">E-mail</label></dt>
+            <dd><input type="email" id="email" name="your-email"></dd>
+            <dt><label for="message">MESSAGE</label></dt>
+            <dd><textarea id="message" name="your-message"></textarea></dd>
+          </dl>
+          <div class="button"><input type="submit" value="送信"></div>
+        </form>
+      </section>
+    </main>
+
+    <footer id="footer">
+      <p>&copy; 2024 My Work</p>
+    </footer>
+
+  </body>
+
+</html>
